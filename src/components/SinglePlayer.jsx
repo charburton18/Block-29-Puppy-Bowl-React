@@ -1,10 +1,5 @@
-import {useState} from 'react'
-import AllPlayers from './AllPlayers.jsx'
-
 const API_URL_BASE = 'https://fsa-puppy-bowl.herokuapp.com/api/CHAR'
 const SinglePlayer = ({player, setPlayer}) => {
-  // const [playerArr, setPlayerArr] = useState([]);
-  // setPlayerArr([])
   return (
     <>
       <h2>{player.name}</h2>

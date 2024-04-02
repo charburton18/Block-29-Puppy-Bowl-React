@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import { API_URL_BASE } from './SinglePlayer';
 
-const AddPlayerForm = () => {
+const AddPlayerForm = ({fetchAllPlayers}) => {
 
   const [playerNameInput, setPlayerNameInput] = useState("");
   const [playerBreedInput, setPlayerBreedInput] = useState("");
@@ -25,6 +25,7 @@ const AddPlayerForm = () => {
       );
       const result = await response.json();
       console.log(result);
+      fetchAllPlayers();
     } catch (err) {
       console.error(err);
     }
