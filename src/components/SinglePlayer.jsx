@@ -17,3 +17,4 @@ const SinglePlayer = ({player, setPlayer}) => {
 }
 
 export default SinglePlayer
+export {API_URL_BASE}

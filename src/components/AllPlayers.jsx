@@ -1,11 +1,13 @@
 import {useState, useEffect} from 'react'
-import SinglePlayer from './SinglePlayer';
+import SinglePlayer from './SinglePlayer'
+import DeletePlayer from './DeletePlayer'
 
 const API_URL_BASE = 'https://fsa-puppy-bowl.herokuapp.com/api/CHAR'
 
 const AllPlayers = () => {
   const [playerArr, setPlayerArr] = useState([]);
   const [player, setPlayer] = useState({});
+  // const [playersToDisplay, setPlayersToDisplay] = useState([])
 
   // async fetch function grabs player Array from API
   useEffect(() => {
@@ -31,11 +33,11 @@ const AllPlayers = () => {
           playerArr.map((currentPlayer) => {
             return (
               <div>
-                <p>{player?.name}</p>
                 <p>{currentPlayer.name}</p>
                 <button onClick={(e) => {
                   setPlayer(currentPlayer);}
                 }>More Details</button>
+                <DeletePlayer player={currentPlayer}/>
               </div>
               )
             })
@@ -47,11 +49,5 @@ const AllPlayers = () => {
 
 // if clicked player.name exists then render that player.name's detail page <SinglePlayer />
 // if player.name does not exist then render the page with names and buttons
-
-//<SinglePlayer
-// key={currentPlayer.id}
-// playerName={currentPlayer.name}
-// playerImage={currentPlayer.imageUrl}
-// playerTeamId={currentPlayer.teamId}
 
 export default AllPlayers
